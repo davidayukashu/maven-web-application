@@ -1,0 +1,42 @@
+pipeline{
+    agent any
+    tools{
+        maven "maven3.8.4"
+    }
+    stages{
+        stage('GitClone'){
+            steps{
+                git "https://github.com/davidayukashu/maven-web-application"
+            }
+        }
+        stage('TestBuild'){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage('CodeQuality'){
+            steps{
+                sh "mvn sonar:sonar"
+            }
+        }
+        stage('UpLoadArtifacts'){
+            steps{
+                sh "mvn deploy"
+            }
+        }
+        stage('Messages'){
+            steps{
+                sh "echo ci job successful"
+            }
+        }
+        /*
+        stage('predeplyment'){
+            steps{
+                sh "docker build -t mylandmarktech/maven-web-app ."
+                sh "docker scan mylandmarktech/maven-web-app"
+                sh "docker push mylandmarktech/maven-web-app"
+            }
+        }
+        */
+    }
+}
