@@ -29,14 +29,14 @@ pipeline{
                 sh "echo ci job successful"
             }
         }
-        /*
+        
         stage('predeplyment'){
             steps{
-                sh "docker build -t mylandmarktech/maven-web-app ."
-                sh "docker scan mylandmarktech/maven-web-app"
-                sh "docker push mylandmarktech/maven-web-app"
+                sh "docker build -t myappimage:2 -f Jenkinsfile_davidci ."
+                //sh "docker scan mylandmarktech/maven-web-app"
+                //sh "docker push mylandmarktech/maven-web-app"
             }
         }
-        */
+        
     }
 }
