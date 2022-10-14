@@ -6,7 +6,7 @@
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	
-	<version>0.0.4</version> 
+	<version>0.0.5</version> 
 	
 	<name>maven-web-application</name>
 
@@ -103,7 +103,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>maven-web-app</finalName>
+		<finalName>talang-app</finalName>
 		
 		<plugins>
 			<plugin>
