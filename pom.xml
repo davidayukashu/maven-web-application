@@ -6,7 +6,7 @@
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	
-	<version>0.0.2</version> 
+	<version>0.0.4</version> 
 	
 	<name>maven-web-application</name>
 
@@ -91,13 +91,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>my-release-repo</name>
-	      <url>http://107.22.130.20:8081/repository/my-release-repo/</url>
+	      <url>http://54.226.155.102:8081/repository/my-release-re/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>my-snapshot-repo</name>
-	      <url>http://107.22.130.20:8081/repository/my-snapshot-repo/</url>
+	      <url>http://54.226.155.102:8081/repository/my-snap-re/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
