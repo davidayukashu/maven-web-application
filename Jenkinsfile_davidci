@@ -30,11 +30,32 @@ pipeline{
             }
         }
         
-        stage('predeplyment'){
+        stage('Build Docker Image'){
             steps{
-                sh "docker build -t myappimage:2 ."
+                sh "sudo docker build -t ayukdavidashu/maven-web-app:1 ."
                 //sh "docker scan mylandmarktech/maven-web-app"
                 //sh "docker push mylandmarktech/maven-web-app"
+                echo "build image completed"
+            }
+        }
+        environment{
+            DOCKERHUB_CREDENTIALS=credentials('dockerhubcredentials')
+        }
+        stage('Login to Dockerhub'){
+            steps{
+                sh "echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                echo "login complete"
+            }
+        }
+        stage('Push Image to Dockerhub'){
+            steps{
+                sh "sudo docker push ayukdavidashu/maven-web-app:1"
+                echo "push image complete"
+            }
+        }
+        post{
+            always{
+                sh "docker logout"
             }
         }
         
