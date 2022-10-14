@@ -53,6 +53,10 @@ pipeline{
                 echo "push image complete"
             }
         }
-    
+        post{
+          always{
+          sh "docker logout"
+        }
+        }
     }
 }
