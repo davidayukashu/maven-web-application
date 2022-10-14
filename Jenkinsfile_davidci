@@ -38,8 +38,10 @@ pipeline{
                 echo "build image completed"
             }
         }
-        environment{
+        stage('enviroment_variable'){
+         steps{
             DOCKERHUB_CREDENTIALS=credentials('dockerhubcredentials')
+            }
         }
         stage('Login to Dockerhub'){
             steps{
@@ -51,11 +53,6 @@ pipeline{
             steps{
                 sh "sudo docker push ayukdavidashu/maven-web-app:1"
                 echo "push image complete"
-            }
-        }
-        post{
-            always{
-                sh "docker logout"
             }
         }
         
