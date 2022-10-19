@@ -35,7 +35,7 @@ pipeline{
         
         stage('Build Docker Image'){
             steps{
-                sh "docker build -t ayukdavidashu/maven-web-app:1.2.3 ."
+                sh "docker build -t ayukdavidashu/maven-web-app:1.2.7 ."
                
                 echo "build image completed"
             }
@@ -49,7 +49,7 @@ pipeline{
         }
         stage('Push Image to Dockerhub'){
             steps{
-                sh "docker push ayukdavidashu/maven-web-app:1.2.3"
+                sh "docker push ayukdavidashu/maven-web-app:1.2.7"
                 echo "push image complete"
             }
         }
